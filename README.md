@@ -7,8 +7,15 @@
 
 
 
-**DeXTr** :   
-**Visual Encoder** : 
-**Feature Difference** :  
-**Language Model(+Training)** :  [Code by Pan et al.](https://github.com/JDAI-CV/image-captioning)
+
+
+
+----
+
+# 작성중
+
+**DeXTr** :  
+**Visual Encoder** :  
+**Feature Difference** :   
+**Language Model+Report Generation** :   [Code by Pan et al.](https://github.com/JDAI-CV/image-captioning)
 
