@@ -1,0 +1,78 @@
+feature-difference, visual-encoder, pre-trained, image-fusion, Batchsize,  joint, Total-parameters, Trainable-layer, etc, name
+only-one-normal, resnet-152, ImageNet, ewp, 3 , fc, -, Transformer, x, pair
+only-one-normal, resnet-152, ImageNet, ewp, 3, fc, -, conv7+Transformer, x, one
+only-one-normal, resnet-152, ImageNet, ewp, 1, fc, -, conv7+Transformer, x, one_sgd
+
+only-one-normal, densenet-121, ImageNet, ewp, 2, 1x1conv, 21560609, Dense4+Transformer, x4+ScaledNoam, One_dense_x4(중도포기)
+
+only-one-normal, densenet-121, ImageNet, concat + ewp, 8, 1x1conv, 21560609, Dense4+Transformer, x2+Multistep, One_dense
+only-one-normal, densenet-121, Chexpert, ewp, 4, 1x1conv, 21560609, Dense4+Transformer, x4+ScaledNoam, One_dense_x4_CheXpert
+pair by rmse, densenet-121, Chexpert, concat + ewp, 4, fc, 21560609, Dense4+Transformer, x2+Detach+ScaledNoam, pair_dense_x2_CheXpert_f, best=200
+pair by rmse, densenet-121, Chexpert, concat + ewp, 4, fc, 21560609, Dense1234+Transformer, x2+Detach+ScaledNoam, pair_dense_x2_CheXpert_fc_en, resume- 200 by 바로 위 모델
+
+
+pair by rmse, densenet-121, Chexpert, concat + ewp, 2, no, 63334305 , Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_pair_dense_x2_Chexpert_no, 
+pair by rmse, densenet-121, Chexpert, concat + ewp, 2, no, 56380449 , Transformer, x2+Detach+ScaledNoam+highdim+2stage+SCSL, x_transformer+_pair_dense_x2_Chexpert_no_2stage, resume - 117 by 바로 위모델 - 150/50SCSL
+no, densenet-121, Chexpert, concat + ewp, 4, no, 63334305 , Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_no_dense_x2_Chexpert
+random, densenet-121, Chexpert, concat + ewp, 2, no, 63334305 , Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_random_dense_x2_Chexpert_no
+random, densenet-121, ImageNet, concat + ewp, 2, no, 63334305 , Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_random_dense_x2_ImageNet_no
+random, densenet-121, Chexpert, concat + ewp, 4, no, 63334305 , Dense1234+Transformer, x2+No-Detach+ScaledNoam+highdim, x_transformer+_random_dense_x2_Chexpert_nodetach
+
+
+# 1024 버전
+CA, densenet-121, Chexpert, concat + ca-dot, 4, no, 80126881, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca10_dense_x2_Chexpert_no, CA-10
+CA, densenet-121, Chexpert, concat + ca-dot, 2(4), no, 80126881, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca30_dense_x2_Chexpert_no, CA-30
+CA, densenet-121, Chexpert, ca-dot, 2, no, 80126881, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca30_dense_x2_Chexpert_no_noconcat, (CA-30+noconcat)
+# 25번은 33번 성능 좋으면.
+CA, densenet-121, Chexpert, ca, 2(8) no, 80126881, Dense1234+Transformer, x4+Detaach+ScaledNoam+highdim, x_transformer+_ca10_dense_x4_Chexpert_no, CA-10+x4+noconcat
+
+# 512 버전 CA (XTransformer 수정
+# Warmup 10000 / 77000 이나 해버렸다.. 그래서 31번은 --resume 40 때려서 다시 진행했었음 ㅠ (성능이 안나온다면 아마 이 때문일수도?)
+CA, densenet-121, Chexpert, concat + ca-dot, 4(16), fc, 67011489, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca30_512_dense_x2_Chexpert_fc, CA-30
+CA, densenet-121, Chexpert, ca-dot, 2(4), fc, 67011489, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca30_512_dense_x2_Chexpert_fc_noconcat, CA-30+noconcat
+
+# 512-dot
+# Trainable parameters: 67011489
+# (Visual Encoder : 6953856, Contrastive Attention : 4203008, Transformer : 55854625)
+
+# 512 버전 BiP.. 
+# CA 이전 Dropout 키고-Learning rate Scheduler (이건 아마 적용 안 됐을 것, log.txt확인해보기)
+CA, densenet-121, Chexpert, ca-BiP, 4(8), fc, 72530856, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca30BiP_512_dense_x2_Chexpert_fc_dropout_schedule, CA-30+noconcat
+CA, densenet-121, Chexpert, ca-dot, 2(4), fc, 67011489, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca30_512_dense_x2_Chexpert_fc_dropout_schedule, CA-30+noconcat
+
+41 + concat + batch 2(4) x_transformer+_ca30_512_dense_x2_CheXpert_fc_dropout_schedule_concat
+41 + ca 50(noconcat) + batch 4(8) x_transformer+_ca50_512_dense_x2_CheXpert_fc_dropout_schedule
+
+# 진짜 Schudeulr 켜보기
+
+# 512-bip
+#Trainable parameters: 72530856
+#(Visual Encoder : 6953856, Contrastive Attention : 9722375, Transformer : 55854625)
+# 512 버전 Dot x Head?? Layer? Dropout?? Gradient Connection?
+
+# 768-dot
+#Total parameters: 140545057
+#(Visual Encoder : 6953856, Contrastive Attention: 9450240,Transformer : 124140961)
+#Trainable parameters: 140545057
+#(Visual Encoder : 6953856, Contrastive Attention : 9450240, Transformer : 124140961)
+
+# 768-BiP
+Trainable parameters: 152952872
+(Visual Encoder : 6953856, Contrastive Attention : 21858055, Transformer : 124140961)
+
+CA, densenet-121, Chexpert, ca10-BiP, 4(8), fc, 152952872, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca10BiP_768_dense_x2_Chexpert_fc_dropout_schedule, -
+CA, densenet-121, Chexpert, ca10-dot, 2(4), fc, 140545057, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_ca10_768_dense_x2_Chexpert_fc_dropout_schedule, -
+random, densenet-121, Chexpert, ca10-dot, 2(4), fc, 131094817, Dense1234+Transformer, x2+Detach+ScaledNoam+highdim, x_transformer+_random_768_dense_x2_Chexpert_fc_dropout_schedule, -
+
+
+# 768-random
+Trainable parameters: 131094817
+(Visual Encoder : 6953856, Contrastive Attention : 0, Transformer : 124140961)
+
+
+# IU
+
+
+ca30, dropout 0.3(best), (4,8)
+ca30, dropout 0.5(cange)(2,4)
+
