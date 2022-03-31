@@ -1,4 +1,4 @@
-# End-to-End Medical Image Captioning
+# End-to-End Medical Image Captioning(DeXTr)
 
 [Report(Written in Korean)](https://www.notion.so/sjinu/End-to-End-Medical-Image-Captioning-63f3fa7dc9be45dea3b8aa664890f123)
 ## Architecture
