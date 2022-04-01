@@ -1,5 +1,15 @@
 # End-to-End Medical Image Captioning(DeXTr)
 
+Many research use only language model in image captioning.  
+In other words, model's input is image feature from pre-trained CNN networks  
+
+In contrast, my model take image as input, so that CNN networks can also learn about image captioning task.  
+Maybe CNN networks(visual encoder) will have potential to work better than (practically frozen)pre-trained CNN on X-ray datasets(e.g. CheXpert), in this way.     
+
+Besides, my DeXTr also use several normal images as input(visual encoder part), extract mutual information between input and normal images (feature difference part), pass this information(feature) to [X-Transformer](https://arxiv.org/abs/2003.14080) (language model part).  
+
+See below for details.
+
 [Report(Written in Korean)](https://www.notion.so/sjinu/End-to-End-Medical-Image-Captioning-63f3fa7dc9be45dea3b8aa664890f123)
 
 ## Model
