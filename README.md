@@ -1,6 +1,7 @@
 # End-to-End Medical Image Captioning(DeXTr)
 
 [Report(Written in Korean)](https://www.notion.so/sjinu/End-to-End-Medical-Image-Captioning-63f3fa7dc9be45dea3b8aa664890f123)
+
 ## Model
 
 ### Architecture
@@ -13,7 +14,7 @@ see the function `__getitem__` in [*Dextr/coco_dataset.py*](https://github.com/s
 
 #### CA(Contrastive Attention)
 
-> Wri
+> Wrote the [code of contrastive attention](https://github.com/sjinu96/End-to-End-Medical-Image-Captioning/blob/main/DeXTr/models/contra_att.py) based on theory of [Liu et al.(2022)](https://arxiv.org/abs/2106.06965)
 <img width="961" alt="image" src="https://user-images.githubusercontent.com/71121461/161176159-7870a384-0d12-4723-b6c8-90f3ffb5d556.png">
 
 ### Evaluation
@@ -35,14 +36,14 @@ see the function `__getitem__` in [*Dextr/coco_dataset.py*](https://github.com/s
 <img width="969" alt="image" src="https://user-images.githubusercontent.com/71121461/161175574-3d282ed4-b54b-407b-8b8a-2aeb829b3916.png">
 
 ----
-
+  
 ## About Code
 
 
 **DeXTr**(Full architecture) :  [DeXTr/models/Detr.py](https://github.com/sjinu96/End-to-End-Medical-Image-Captioning/tree/main/DeXTr/models)  
 
 **Visual Encoder** :  [DeXTr/models/visual_extractor.py](https://github.com/sjinu96/End-to-End-Medical-Image-Captioning/blob/main/DeXTr/models/visual_extractor.py)  
-**Feature Difference** :   [DeXTr/models/contra_att.py](https://github.com/sjinu96/End-to-End-Medical-Image-Captioning/blob/main/DeXTr/models/contra_att.py)  
+**Feature Difference** :  CA in [DeXTr/models/contra_att.py](https://github.com/sjinu96/End-to-End-Medical-Image-Captioning/blob/main/DeXTr/models/contra_att.py) & Others in [DeXTr/models/Detr.py](https://github.com/sjinu96/End-to-End-Medical-Image-Captioning/tree/main/DeXTr/models)  
 **Language Model+Report Generation** :   [Code by Pan(Author of X-LAN)](https://github.com/JDAI-CV/image-captioning)  
 
 
