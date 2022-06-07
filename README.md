@@ -34,7 +34,7 @@ see the function `__getitem__` in [*Dextr/coco_dataset.py*](https://github.com/s
 
 #### Qualitative
 
-<img width="997" alt="image" src="https://user-images.githubusercontent.com/71121461/161175529-e237bf1c-384e-4989-969e-33f112fcba5c.png">
+<img width="894" alt="image" src="https://user-images.githubusercontent.com/71121461/172307602-ff03178f-caa5-47c2-81b7-4015f9d84f26.png">
 
 ### Other results
 
