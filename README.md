@@ -1,3 +1,26 @@
+# MIC_team
+
+## Workspace
+- Captioning : Medical Image Captioning 
+- Dataset : Chexpert 등 (공용)
+- SSL : Self-Supervised Learning (혁종)
+- SL : Supervised pre-training (진수)
+- FeatureEval : Linear Evaluation / K-NN Evaluation(?) (유진)
+- Visualization : NLP 관련 시각화 / 그 외 시각화 샘플들 (승용)
+
+- ETC : 진짜 잡폴더
+
+
+## CheXpert 관련 내용
+- Official Paper : https://arxiv.org/pdf/1901.07031.pdf
+- Official Site : https://stanfordmlgroup.github.io/competitions/chexpert/
+- Other Github :  https://github.com/gaetandi/cheXpert
+  - Dataset, Pre-Training, Evaluation 다 있어요 ! 
+
+
+
+---
+
 # End-to-End Medical Image Captioning(DeXTr)
 
 Many research use only language model in image captioning.  
