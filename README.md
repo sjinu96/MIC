@@ -3,10 +3,13 @@
 ## Workspace
 - Captioning : Medical Image Captioning 
 - Dataset : Chexpert 등 (공용)
+  - 참고 : [Github](https://github.com/gaetandi/cheXpert/blob/master/cheXpert_final.ipynb), [Paper](https://arxiv.org/pdf/1901.07031.pdf)
 - SSL : Self-Supervised Learning (혁종)
 - SL : Supervised pre-training (진수)
 - FeatureEval : Linear Evaluation / K-NN Evaluation(?) (유진)
+   - Evaluation 방법, Label 등 참고 : [Github](https://github.com/gaetandi/cheXpert/blob/master/cheXpert_final.ipynb), [Paper](https://arxiv.org/pdf/1901.07031.pdf)
 - Visualization : NLP 관련 시각화 / 그 외 시각화 샘플들 (승용)
+  - 샘플은 여유 되는대로 쭉 추가 할게용
 
 - ETC : 진짜 잡폴더
 
