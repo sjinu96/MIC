@@ -87,5 +87,5 @@ see the function `__getitem__` in [*Dextr/coco_dataset.py*](https://github.com/s
 
 **Training** : [DeXTr/main_mimic.py](https://github.com/sjinu96/End-to-End-Medical-Image-Captioning/blob/main/DeXTr/main_mimic.py)
 
-`$ CUDA_VISIBLE_DEVICES=1 python3 main_mimic.py --folder ./experiments/name`
+`$ CUDA_VISIBLE_DEVICES=1 python3 main_mimic.py --folder ./experiments/name` 
 
