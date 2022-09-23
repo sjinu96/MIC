@@ -1,4 +1,4 @@
-# MIC_team
+# MIC_team(2022.08 ~)
 
 ## Workspace
 - Captioning : Medical Image Captioning 
@@ -24,7 +24,7 @@
 
 ---
 
-# End-to-End Medical Image Captioning(DeXTr)
+# End-to-End Medical Image Captioning(DeXTr)(2021.12~2022.02)
 
 Many research use only language model in image captioning.  
 In other words, model's input is image feature from pre-trained CNN networks  
